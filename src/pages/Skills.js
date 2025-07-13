@@ -1,40 +1,35 @@
 import classes from "./Skills.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ProgressBar } from "react-bootstrap";
+import SkillProgressBar from "../components/UI/SkilProgressBar";
 
 export default function SkillsPage() {
   return (
     <>
       <h1 className="title">SKILLS</h1>
       <section>
-        <h2>PROGRAMMING LANGUAGES</h2>
+        <h4>Programming languages, frameworks and tools that I worked with:</h4>
 
         <ul className={`${classes.parent} ${classes["horizontal-list"]}`}>
-          <li>
-            <i className="fa-brands fa-html5"></i>
-            <ProgressBar now={100} />
-          </li>
-          <li>
-            <i className="fa-brands fa-css3-alt"></i>
-            <ProgressBar now={90} animated />
-          </li>
-          <li>
-            <i className="fa-brands fa-python"></i>
-            <ProgressBar now={85} animated />
-          </li>
-          <li>
-            <i className="fa-brands fa-react"></i>
-            <ProgressBar now={80} animated />
-          </li>
-          <li>
-            <i className="fa-brands fa-github"></i>
-            <ProgressBar now={65} animated />
-          </li>
+
+          <SkillProgressBar text="React" percent={80} />
+          <SkillProgressBar text="TypeScript" percent={65} />
+          <SkillProgressBar text="Tailwind" percent={60} />
+          <SkillProgressBar text="HTML" percent={90} />
+          <SkillProgressBar text="CSS" percent={70} />
+          <SkillProgressBar text="JavaScript" percent={80} />
+          <SkillProgressBar text="SpringBoot" percent={90} />
+          <SkillProgressBar text="Java" percent={90} />
+          <SkillProgressBar text="Python" percent={70} />
+          <SkillProgressBar text="Oracle" percent={95} />
+          <SkillProgressBar text="Mongo" percent={80} />
+          <SkillProgressBar text="Figma" percent={85} />
+          <SkillProgressBar text="GitHub" percent={85} />
+
         </ul>
       </section>
 
       <section>
-        <h2>FOREIGN LANGUAGES</h2>
+        <h2 style={{paddingTop: "3rem"}}>FOREIGN LANGUAGES</h2>
 
         <ul>
           <li>English - B2</li>

@@ -22,7 +22,7 @@ export default function InterestsPage() {
       </p>
 
       <p>
-        My latest hobby is web design and I spent a large amount of time looking
+        Other hobby is web design and I spent a large amount of time looking
         at tutorials and designing my projects. It allows me to express my ideas
         visually and create something that can be useful and helpful for me and
         for others. I find it fulfilling and enjoyable!

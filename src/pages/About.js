@@ -34,7 +34,7 @@ export default function AboutPage() {
       <p>
         Beside my job as a data analyst, I have a strong passion for continuous learning and enjoy exploring new technologies or refining the ones I already know. 
         Most of my projects so far have been developed either for university or as personal initiatives for myself and friends. 
-        I design the user interfaces of my applications myself. I have a solid foundation in UI/UX, supported by a 3-month course in the field. 
+        I design the user interfaces of my applications myself. I have a solid foundation in <span className={classes["key-word"]}>UI/UX, supported by a 3-month course</span> in the field. 
         Even my master’s thesis placed a strong emphasis on interface design, which was one of the key elements that helped me achieve a high final grade.
       </p>
 
@@ -64,6 +64,7 @@ export default function AboutPage() {
           target="_blank"
           rel="noreferrer"
           class="link"
+          style={{ color: "#0f4c81" }}
         >
           here
         </a>{" "}

@@ -16,6 +16,7 @@ export default function EducationPage() {
               target="_blank"
               rel="noreferrer"
               class="link"
+              style={{ color: "#0f4c81" }}
             >
               Faculty of Mathematics and Computer Science
             </a>{" "}
@@ -29,6 +30,7 @@ export default function EducationPage() {
               target="_blank"
               rel="noreferrer"
               class="link"
+              style={{ color: "#0f4c81" }}
             >
               Faculty of Mathematics and Computer Science
             </a>{" "}
@@ -42,6 +44,7 @@ export default function EducationPage() {
               target="_blank"
               rel="noreferrer"
               class="link"
+              style={{ color: "#0f4c81" }}
             >
               National College "Dimitrie Cantemir"
             </a>{" "}
