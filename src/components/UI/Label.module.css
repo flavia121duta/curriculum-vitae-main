@@ -1,0 +1,10 @@
+.label {
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px; /* pill shape */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  white-space: nowrap;
+}

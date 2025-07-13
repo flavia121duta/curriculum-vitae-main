@@ -1,0 +1,52 @@
+.first-name {
+  color: #0f4c81;
+}
+
+.key-word {
+  color: #0f4c81;
+  font-weight: bold;
+}
+
+.btn-download {
+  margin: 1rem;
+}
+
+.btn-download > i {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.contact {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.social > * {
+  margin: 1rem;
+  font-size: 3rem;
+}
+
+.social i {
+  color: grey;
+}
+
+.social i:hover {
+  color: #0f4c81;
+}
+
+.email {
+  text-decoration: underline;
+}
+
+.hide-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hide-option:active {
+  animation: growDown 300ms ease-in-out forwards;
+}

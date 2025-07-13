@@ -1,0 +1,44 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Quicksand", sans-serif;
+  font-size: large;
+}
+
+main.content {
+  margin: auto 10rem auto 4rem;
+  max-width: 1200px;
+}
+
+h1.title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  main.content {
+    margin: auto 1rem;
+  }
+}
+
+img {
+  cursor: pointer;
+}
+
+section {
+  margin: 1rem 0;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+a {
+  color: #0f4c81;
+  font-weight: 700;
+}
+
+.link {
+  text-decoration: none;
+}

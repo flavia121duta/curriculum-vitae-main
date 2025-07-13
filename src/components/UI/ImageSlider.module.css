@@ -1,0 +1,9 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  max-width: 750px;
+}
