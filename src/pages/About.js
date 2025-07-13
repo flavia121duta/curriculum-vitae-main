@@ -40,7 +40,7 @@ export default function AboutPage() {
 
       <p>
        My professional interests lie at the intersection of three key areas: <span className={classes["key-word"]}>data analysis</span>, <span className={classes["key-word"]}>programming</span>, and <span className={classes["key-word"]}>UI/UX design</span>. 
-       I’m always open to collaboration and eager to grow in all these fields.{" "}
+       I’m always open to collaboration and eager to grow in all these fields...{" "}
       </p>
 
       <p>
