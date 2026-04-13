@@ -1,103 +1,132 @@
 import classes from "./Experience.module.css";
+import { useState } from "react";
+
+import chevronLeft from "../assets/icons/chevron-left.svg";
+import chevronRight from "../assets/icons/chevron-right.svg";
+
+const experiences = [
+  {
+    role: "Data Analyst",
+    workplace: "MarketVector",
+    link: "https://www.marketvector.eu/",
+    time: "December 2023 - Present",
+    description:
+      "I am currently working at a company focused on retail data, where I contribute to projects such as price monitoring and Key Account Data (KAD) reporting. My work involves extracting, processing, and analyzing data to provide insights on market share, trends, and distribution. I primarily use Excel and Power BI to build reports based on two main data streams: FMCG retail data from stores like Kaufland, Mega Image, and Metro and beauty-focused data from retailers such as Sephora, Notino, and Douglas. These analyses help enterprise clients track performance, competition, and pricing strategies.",
+  },
+  {
+    role: "Math teacher",
+    workplace: "Centrul de meditații și dezvoltare personală",
+    link: "https://www.centruldemeditatii.ro/",
+    time: "September 2023 - November 2023",
+    description:
+      "I worked part-time at a tutoring center, where I taught math every weekend to students in grades 6, 7, 8, and 11. This experience allowed me to work closely with pupils, each with their own learning styles and needs. I focused on making math accessible and engaging by approaching the curriculum with patience and creativity.",
+  },
+  {
+    role: "Pedagogical Practice",
+    workplace: 'Secondary School "Titu Maiorescu"',
+    link: "https://www.titumaiorescu.ro/",
+    time: "November 2022 - May 2023",
+    description:
+      'I completed my pedagogical practice at "Titu Maiorescu" Secondary School, where I assisted in math classes for grades 5 through 8. During each class, I documented my observations and contributed to various activities such as grading, preparing materials, and teaching lessons. At the end of the practice, I wrote a case study that analyzed a unique teaching situation and how it was effectively addressed.',
+  },
+  {
+    role: "Internship",
+    workplace: "Deloitte Digital",
+    link: "https://www.deloittedigital.com/",
+    time: "July - August 2022",
+    description:
+      "During my internship, I had the opportunity to deepen my understanding of key computer science concepts, tools, and techniques. The four-week program began with two weeks of theoretical and interactive workshops, where I learned about the technologies used within the company. In the final two weeks, I collaborated on a team project that served as an evaluation of our practical skills. I focused on the front-end development, contributing to tasks of varying complexity and standing out through my problem-solving skills. The project was built using the React framework with JavaScript and CSS for styling.",
+  },
+];
 
 export default function ExperiencePage() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 3;
+
+  // calculate whitch items to show
+  const startIndex = currentPage * itemsPerPage;
+  const selectedExperiences = experiences.slice(
+    startIndex,
+    startIndex + itemsPerPage,
+  );
+
+  const totalPages = Math.ceil(experiences.length / itemsPerPage);
+
+  const nextPageHandler = () => {
+    if (currentPage < totalPages - 1) setCurrentPage((prev) => prev + 1);
+  };
+
+  const prevPageHandler = () => {
+    if (currentPage > 0) setCurrentPage((prev) => prev - 1);
+  };
+
   return (
     <>
       <h1 className="title">EXPERIENCE</h1>
 
-      <section>
-        <h2>
-          Data Analyst at{" "}
-          <a
-            href="https://www.marketvector.eu/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            MarketVector
-          </a>
-        </h2>
-        <div className={classes.container}></div>
-        <div>Dec2023 - Present:</div>
-        <p>
-          I am currently working at a company focused on retail data, where I
-          contribute to projects such as price monitoring and Key Account Data
-          (KAD) reporting. My work involves extracting, processing, and
-          analyzing data to provide insights on market share, trends, and
-          distribution. I primarily use Excel and Power BI to build reports
-          based on two main data streams: FMCG retail data from stores like
-          Kaufland, Mega Image, and Metro and beauty-focused data from retailers
-          such as Sephora, Notino, and Douglas. These analyses help enterprise
-          clients track performance, competition, and pricing strategies.
-        </p>
-      </section>
+      {selectedExperiences.map((exp, index) => (
+        <section key={index} className={classes.experienceSection}>
+          <h2>
+            {exp.role} at{" "}
+            <a
+              href={exp.link}
+              target="_blank"
+              rel="noreferrer"
+              className={classes.workplaceLink}
+            >
+              {exp.workplace}
+            </a>
+          </h2>
+          <div className={classes.time}>{exp.time}:</div>
+          <p>{exp.description}</p>
+        </section>
+      ))}
 
-      <section>
-        <h2>
-          Math teacher at{" "}
-          <a
-            href="https://www.centruldemeditatii.ro/"
-            target="_blank"
-            rel="noreferrer"
+      <div className={classes.pagination}>
+        <button
+          onClick={prevPageHandler}
+          disabled={currentPage === 0}
+          className={classes.chevron}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Centrul de meditații și dezvoltare personală
-          </a>
-        </h2>
-        <div>2020 - 2023:</div>
-        <p>
-          I worked part-time at a tutoring center, where I taught math every
-          weekend to students in grades 6, 7, 8, and 11. This experience allowed
-          me to work closely with pupils, each with their own learning styles
-          and needs. I focused on making math accessible and engaging by
-          approaching the curriculum with patience and creativity.
-        </p>
-      </section>
+            <path
+              d="M15 19L8 12L15 5"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
 
-      <section>
-        <h2>
-          Pedagogical Practice at the{" "}
-          <a
-            href="https://www.titumaiorescu.ro/"
-            target="_blank"
-            rel="noreferrer"
+        <button
+          onClick={nextPageHandler}
+          disabled={currentPage === totalPages - 1}
+          className={classes.chevron}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Secondary School "Titu Maiorescu"
-          </a>
-        </h2>
-        <p>
-          I completed my pedagogical practice at "Titu Maiorescu" Secondary
-          School, where I assisted in math classes for grades 5 through 8.
-          During each class, I documented my observations and contributed to
-          various activities such as grading, preparing materials, and teaching
-          lessons. At the end of the practice, I wrote a case study that
-          analyzed a unique teaching situation and how it was effectively
-          addressed.
-        </p>
-      </section>
-
-      <section>
-        <h2>
-          Internship at{" "}
-          <a
-            href="https://www.deloittedigital.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Deloitte Digital
-          </a>
-        </h2>
-        <div>July - August 2022:</div>
-        <p>
-          During my internship, I had the opportunity to deepen my understanding
-          of key computer science concepts, tools, and techniques. The four-week
-          program began with two weeks of theoretical and interactive workshops,
-          where I learned about the technologies used within the company. In the
-          final two weeks, I collaborated on a team project that served as an
-          evaluation of our practical skills. I focused on the front-end
-          development, contributing to tasks of varying complexity and standing
-          out through my problem-solving skills. The project was built using the
-          React framework with JavaScript and CSS for styling.
-        </p>
-      </section>
+            <path
+              d="M9 5L16 12L9 19"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
     </>
   );
 }
