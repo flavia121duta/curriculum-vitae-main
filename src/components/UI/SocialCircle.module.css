@@ -1,0 +1,18 @@
+.social-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: var(--light-purple);
+  width: 60px;
+  height: 60px;
+  background-color: var(--light-purple);
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.logo {
+  width: 30px;
+  margin: auto;
+}

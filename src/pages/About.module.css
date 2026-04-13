@@ -1,9 +1,13 @@
+.about-page {
+  position: relative;
+}
+
 .first-name {
-  color: #0f4c81;
+  color: #9d00ff;
 }
 
 .key-word {
-  color: #0f4c81;
+  color: #9d00ff;
   font-weight: bold;
 }
 
@@ -27,6 +31,17 @@
 .social > * {
   margin: 1rem;
   font-size: 3rem;
+}
+
+.social-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .social i {

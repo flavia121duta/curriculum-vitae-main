@@ -1,115 +1,99 @@
-import { useState } from "react";
 import classes from "./About.module.css";
 import Resume from "../assets/resume.pdf";
 import Button from "../components/UI/Button";
+import { useNavigate } from "react-router-dom";
+
+import linkedinLogo from "../assets/social-logos/linkedin.svg";
+import githubLogo from "../assets/social-logos/github.svg";
+import tableauLogo from "../assets/social-logos/tableau.svg";
+import SocialCircle from "../components/UI/SocialCircle";
 
 export default function AboutPage() {
-  const [isHidden, setIsHidden] = useState(false);
-  const [typeOfChevron, setShowContactInfo] = useState(
-    "fa-solid fa-chevron-down"
-  );
-
-  const hidePannelHandler = () => {
-    setIsHidden(!isHidden);
-
-    if (isHidden === true) {
-      setShowContactInfo("fa-solid fa-chevron-down");
-    } else {
-      setShowContactInfo("fa-solid fa-chevron-up");
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <>
+    <div className={classes["about-page"]}>
       <h1 className="title">
         <span className={`${classes["first-name"]}`}>DUŢĂ</span> FLAVIA
       </h1>
 
-      <p>
-        Hi! My name is Flavia, and I’m a recent graduate with a Master’s degree in
-        <span className={classes["key-word"]}> Software Engineering </span>
-        from the University of Bucharest. Currently, I work as a <span className={classes["key-word"]}>Data Analyst</span> at a company focused on retail market data.
-      </p>
+      <div className={classes["about-content"]}>
+        <p>
+          Hi! My name is Flavia, and I’m a recent graduate with a Master’s
+          degree in
+          <span className={classes["key-word"]}> Software Engineering </span>
+          from the University of Bucharest. Currently, I work as a{" "}
+          <span className={classes["key-word"]}>Data Analyst</span> at a company
+          focused on retail market data.
+        </p>
 
-      <p>
-        Beside my job as a data analyst, I have a strong passion for continuous learning and enjoy exploring new technologies or refining the ones I already know. 
-        Most of my projects so far have been developed either for university or as personal initiatives for myself and friends. 
-        I design the user interfaces of my applications myself. I have a solid foundation in <span className={classes["key-word"]}>UI/UX, supported by a 3-month course</span> in the field. 
-        Even my master’s thesis placed a strong emphasis on interface design, which was one of the key elements that helped me achieve a high final grade.
-      </p>
+        <p>
+          Beside my job as a data analyst, I have a strong passion for
+          continuous learning and enjoy exploring new technologies or refining
+          the ones I already know. Most of my projects so far have been
+          developed either for university or as personal initiatives for myself
+          and friends. I design the user interfaces of my applications myself. I
+          have a solid foundation in{" "}
+          <span className={classes["key-word"]}>
+            UI/UX, supported by a 3-month course
+          </span>{" "}
+          in the field. Even my master’s thesis placed a strong emphasis on
+          interface design, which was one of the key elements that helped me
+          achieve a high final grade.
+        </p>
 
-      <p>
-       My professional interests lie at the intersection of three key areas: <span className={classes["key-word"]}>data analysis</span>, <span className={classes["key-word"]}>programming</span>, and <span className={classes["key-word"]}>UI/UX design</span>. 
-       I’m always open to collaboration and eager to grow in all these fields...{" "}
-      </p>
+        <p>
+          My professional interests lie at the intersection of three key areas:{" "}
+          <span className={classes["key-word"]}>data analysis</span>,{" "}
+          <span className={classes["key-word"]}>programming</span>, and{" "}
+          <span className={classes["key-word"]}>UI/UX design</span>. I’m always
+          open to collaboration and eager to grow in all these fields.{" "}
+        </p>
 
-      <p>
-        I'm currently open to new opportunities — whether it's in data analytics, software development, or UI/UX design. 
-        I’m especially interested in roles that allow me to combine these skills and contribute to meaningful, user-focused projects.
-      </p>
+        <p>
+          I'm currently open to new opportunities, whether it's in data
+          analytics, software development, or UI/UX design. I’m especially
+          interested in roles that allow me to combine these skills and
+          contribute to meaningful, user-focused projects.
+        </p>
+      </div>
 
-      <ul>
-        <li>Forename: Flavia</li>
-        <li>Surname: Duţă</li>
-        <li>Date of birth: 1st February 2002</li>
-        <li>Place of birth: Oneşti, Romania</li>
-        <li>Nationality: Romanian</li>
-      </ul>
-
-      <p>
-        {" "}
-        You can see my full CV{" "}
-        <a
+      <div className={classes["button-container"]}>
+        <Button
+          type="primary"
           href={Resume}
           target="_blank"
-          rel="noreferrer"
-          class="link"
-          style={{ color: "#0f4c81" }}
-        >
-          here
-        </a>{" "}
-        or you can download it.
-      </p>
+          rel="noopener noreferrer"
+          text="View Resume"
+        />
 
-      <a href={Resume} download="Duta_Flavia resume">
-        <Button text="  Download my resume" i="fa-solid fa-download"></Button>
-      </a>
+        <Button
+          type="secondary"
+          text="View Side Projects"
+          onClick={() => navigate("/side-projects")}
+        />
+      </div>
 
-      <div className={classes.social}>
-        <a
+      <div className={classes["social-container"]}>
+        <SocialCircle
           href="https://www.linkedin.com/in/flavia-duta-223903245/"
           target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fa-brands fa-linkedin"></i>
-        </a>
-        <a
+          alt="LinkedIn"
+          logo={linkedinLogo}
+        />
+        <SocialCircle
           href="https://github.com/flavia121duta"
           target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fa-brands fa-github"></i>
-        </a>
+          alt="GitHub"
+          logo={githubLogo}
+        />
+        <SocialCircle
+          href="https://public.tableau.com/app/profile/flavia.duta/vizzes"
+          target="_blank"
+          alt="Tableau"
+          logo={tableauLogo}
+        />
       </div>
-
-      <div className={classes.contact}>
-        <div
-          className={`${classes["hide-option"]}`}
-          onClick={hidePannelHandler}
-        >
-          <h3>Contact Me</h3>
-          <i className={typeOfChevron}></i>
-        </div>
-        {isHidden && (
-          <ul className={`${classes["contacts-list"]}`}>
-            <li>Phone: +40 733 519 182</li>
-            <li>
-              Email:{" "}
-              <span className={classes.email}>flaviaduta302@gmail.com</span>
-            </li>
-          </ul>
-        )}
-      </div>
-    </>
+    </div>
   );
 }

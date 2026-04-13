@@ -2,5 +2,5 @@
   width: 65%;
   border-radius: 50%;
   margin: 3rem;
-  border: .3rem solid #85B0D6;
+  /* border: 0.3rem solid var(--primary-color-purple); */
 }

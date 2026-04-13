@@ -4,9 +4,8 @@ import RootLayout from "./pages/Root";
 import AboutPage from "./pages/About";
 import EducationPage from "./pages/Education";
 import ExperiencePage from "./pages/Experience";
+import SideProjectsPage from "./pages/SideProjects";
 import SkillsPage from "./pages/Skills";
-import InterestsPage from "./pages/Interests";
-import GalleryPage from "./pages/GalleryPage";
 import ErrorPage from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -18,9 +17,8 @@ const router = createBrowserRouter([
       { index: true, element: <AboutPage /> },
       { path: "education", element: <EducationPage /> },
       { path: "experience", element: <ExperiencePage /> },
+      { path: "side-projects", element: <SideProjectsPage /> },
       { path: "skills", element: <SkillsPage /> },
-      { path: "interests", element: <InterestsPage /> },
-      { path: "interests/gallery", element: <GalleryPage /> },
     ],
   },
 ]);

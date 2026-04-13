@@ -9,8 +9,8 @@ export default function MainNavigation() {
   const navigate = useNavigate();
 
   function avatarClickHandler() {
-    navigate('/'); // navigate programatically
-  };
+    navigate("/"); // navigate programatically
+  }
 
   const screenSize = useScreenSize(true);
 
@@ -50,22 +50,22 @@ export default function MainNavigation() {
         </li>
         <li>
           <NavLink
+            to="/side-projects"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            SIDE PROJECTS
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/skills"
             className={({ isActive }) =>
               isActive ? classes.active : undefined
             }
           >
             SKILLS
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/interests"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
-          >
-            INTERESTS
           </NavLink>
         </li>
       </ul>
@@ -103,7 +103,6 @@ export default function MainNavigation() {
       ) : (
         hamburgerMenu
       )}
-
     </header>
   );
 }

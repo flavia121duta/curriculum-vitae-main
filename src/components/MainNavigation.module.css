@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0f4c81;
+  background-color: var(--dark-purple);
 }
 
 .list {
@@ -17,13 +17,17 @@
 .list a {
   text-decoration: none;
   color: white;
+  padding: 0.25rem 0.5rem;
 }
 
+/* TODO: to have the width as the longers word */
 .list a:hover,
 .list a.active {
-  color: white;
-  text-decoration: underline;
-  font-weight: 900;
+  background-color: var(--primary-color-purple);
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  width: max-content;
 }
 
 @media (max-width: 1000px) {
@@ -38,7 +42,7 @@
   .avatar {
     display: none;
   }
-  
+
   .list {
     display: flex;
     flex-direction: row;
@@ -89,9 +93,9 @@
     overflow-y: auto;
     padding-top: 2rem;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    background-color: #0f4c81; /* match header background */
     z-index: 100;
   }
 
@@ -99,4 +103,3 @@
     align-items: flex-start;
   }
 }
-
