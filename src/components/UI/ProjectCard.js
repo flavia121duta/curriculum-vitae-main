@@ -1,48 +1,88 @@
 import { useState } from "react";
 import Label from "../UI/Label";
 import classes from "./ProjectCard.module.css";
-import chevron_left from "../../assets/icons/chevron-left.svg";
-import chevron_right from "../../assets/icons/chevron-right.svg";
 
 function ProjectCard({ project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1,
     );
   };
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   return (
     <div className={classes["project-card"]}>
-      
       {project.images.length > 1 ? (
         <div className={classes["carousel-container"]}>
-        <img
-          src={project.images[currentImageIndex]}
-          alt={project.title}
-          className={classes["project-card-img"]}
-        />
-        <button onClick={prevImage} className={classes["carousel-button-left"]}>
-          <img src={chevron_left} alt="Previous" />
-        </button>
-        <button onClick={nextImage} className={classes["carousel-button-right"]}>
-          <img src={chevron_right} alt="Next" />
-        </button>
+          <img
+            src={project.images[currentImageIndex]}
+            alt={project.title}
+            className={classes["project-card-img"]}
+          />
+          <div className={classes.sliderImage}>
+            <button
+              onClick={prevImage}
+              disabled={currentImageIndex === 0}
+              className={classes.chevron}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 19L8 12L15 5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <span>
+              {currentImageIndex + 1} / {project.images.length}
+            </span>
+
+            <button
+              onClick={nextImage}
+              disabled={currentImageIndex === project.images.length - 1}
+              className={classes.chevron}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5L16 12L9 19"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       ) : (
         <div className={classes["carousel-container"]}>
-        <img
-          src={project.images[currentImageIndex]}
-          alt={project.title}
-          className={classes["project-card-img"]}
-        />
+          <img
+            src={project.images[currentImageIndex]}
+            alt={project.title}
+            className={classes["project-card-img"]}
+          />
         </div>
       )}
 

@@ -1,41 +1,46 @@
-import beauty_salon from "../assets/ui-ux-design-projects/beauty-salon.jpg";
+// 1. Create a "context" for your images
+// Arguments: (folder path, look in subfolders?, file extension regex)
+let imageContext = require.context(
+  "../assets/projects/ui-ux-design",
+  true,
+  /\.jpg$/,
+);
 
-import ecc_mp_1 from "../assets/ui-ux-design-projects/ecommerce-mobile-phones (1).jpg";
-import ecc_mp_2 from "../assets/ui-ux-design-projects/ecommerce-mobile-phones (2).jpg";
-import ecc_mp_3 from "../assets/ui-ux-design-projects/ecommerce-mobile-phones (3).jpg";
-import ecc_mp_5 from "../assets/ui-ux-design-projects/ecommerce-mobile-phones (5).jpg";
+// 2. Helper function to find images by folder name
+const getImagesByFolder = (folderName) => {
+  return imageContext
+    .keys()
+    .filter((path) => path.includes(folderName))
+    .map((path) => imageContext(path));
+};
 
-import find_cafe_1 from "../assets/ui-ux-design-projects/find-coffee-shop (1).jpg";
-import find_cafe_2 from "../assets/ui-ux-design-projects/find-coffee-shop (2).jpg";
-import find_cafe_3 from "../assets/ui-ux-design-projects/find-coffee-shop (3).jpg";
-import find_cafe_4 from "../assets/ui-ux-design-projects/find-coffee-shop (4).jpg";
-import find_cafe_5 from "../assets/ui-ux-design-projects/find-coffee-shop (5).jpg";
-import find_cafe_6 from "../assets/ui-ux-design-projects/find-coffee-shop (6).jpg";
-import find_cafe_7 from "../assets/ui-ux-design-projects/find-coffee-shop (7).jpg";
-import find_cafe_8 from "../assets/ui-ux-design-projects/find-coffee-shop (8).jpg";
-import find_cafe_9 from "../assets/ui-ux-design-projects/find-coffee-shop (9).jpg";
-import find_cafe_10 from "../assets/ui-ux-design-projects/find-coffee-shop (10).jpg";
+// 3. Export your arrays using the folder names from your structure
+export const ecommerceMobilePhonesImages = getImagesByFolder("01-phone-verse");
+export const hospitalNetworkImages = getImagesByFolder("02-optima-medical");
+export const findCafeImages = getImagesByFolder("03-find-coffee-shop");
+export const shoeRevolutionImages = getImagesByFolder("04-shoe-revolution");
+export const marketingAgencyImages = getImagesByFolder("05-marketing-agency");
+export const beautySalonImages = getImagesByFolder("06-beauty-salon");
 
-import hospital_network_1 from "../assets/ui-ux-design-projects/hospital-network (1).jpg";
-import hospital_network_2 from "../assets/ui-ux-design-projects/hospital-network (2).jpg";
-import hospital_network_3 from "../assets/ui-ux-design-projects/hospital-network (3).jpg";
-import hospital_network_4 from "../assets/ui-ux-design-projects/hospital-network (4).jpg";
-import hospital_network_5 from "../assets/ui-ux-design-projects/hospital-network (5).jpg";
+// ------------------
 
-import marketing_agency_1 from "../assets/ui-ux-design-projects/marketing-agency (1).jpg";
-import marketing_agency_2 from "../assets/ui-ux-design-projects/marketing-agency (2).jpg";
-import marketing_agency_3 from "../assets/ui-ux-design-projects/marketing-agency (3).jpg";
-import marketing_agency_4 from "../assets/ui-ux-design-projects/marketing-agency (4).jpg";
-import marketing_agency_5 from "../assets/ui-ux-design-projects/marketing-agency (5).jpg";
-import marketing_agency_6 from "../assets/ui-ux-design-projects/marketing-agency (6).jpg";
+// eslint-disable-next-line no-const-assign
+imageContext = require.context(
+  "../assets/projects/data-analysis",
+  true,
+  /\.jpg$/,
+);
 
-import shoe_revolution_1 from "../assets/ui-ux-design-projects/shoe-revolution (1).jpg";
-import shoe_revolution_2 from "../assets/ui-ux-design-projects/shoe-revolution (2).jpg";
-
-
-export const beautySalonImages = [beauty_salon];
-export const ecommerceMobilePhonesImages = [ecc_mp_1, ecc_mp_2, ecc_mp_3, ecc_mp_5];
-export const findCafeImages = [find_cafe_1, find_cafe_2, find_cafe_3, find_cafe_4, find_cafe_5, find_cafe_6, find_cafe_7, find_cafe_8, find_cafe_9, find_cafe_10];
-export const hospitalNetworkImages = [hospital_network_1, hospital_network_2, hospital_network_3, hospital_network_4, hospital_network_5];
-export const marketingAgencyImages = [marketing_agency_1, marketing_agency_2, marketing_agency_3, marketing_agency_4, marketing_agency_5, marketing_agency_6];
-export const shoeRevolutionImages = [shoe_revolution_1, shoe_revolution_2];
+export const eurovision = getImagesByFolder("01-eurovision");
+export const misteryShopper = getImagesByFolder("02-mystery-shopper");
+export const ukEmploymentRate = getImagesByFolder("03-uk-employment-rate");
+export const burdenOfDisease = getImagesByFolder("04-burden-of-disease");
+export const hrDashboard = getImagesByFolder("05-hr-dashboard");
+export const superstoreSales = getImagesByFolder("06-superstore-sales");
+export const hollywoodProfitableFilms = getImagesByFolder(
+  "07-hollywood-profitable-films",
+);
+export const earthQuakes = getImagesByFolder("08-earthquakes");
+export const netflixMoviesAndShows = getImagesByFolder(
+  "09-netflix-movies-and-shows",
+);
