@@ -109,10 +109,8 @@ const PROJECTS_DATA = {
 export default function SideProjectsPage() {
   const [category, setCategory] = useState("ui-ux");
 
-  // 2. DERIVED STATE (Cleaner than multiple states)
   const selectedProjects = PROJECTS_DATA[category];
 
-  // 3. HANDLERS
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
   };
@@ -121,7 +119,12 @@ export default function SideProjectsPage() {
     <div className={classes.pageContainer}>
       <h1 className="title">SIDE PROJECTS</h1>
       <p className={classes.description}>
-        Here are some of the projects I've been working on... (your text)
+        Here are some of the projects I've been working on, from user-centered
+        app prototypes to hands-on development work. Each one reflects a unique
+        challenge and a creative solution, whether it's refining the user
+        experience, exploring design systems, or building interactive
+        interfaces. Dive in to see the tools I used and the thought process
+        behind each project.
       </p>
 
       <div className={classes.filterButtons}>

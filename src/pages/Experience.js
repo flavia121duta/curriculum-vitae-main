@@ -79,11 +79,14 @@ export default function ExperiencePage() {
         </section>
       ))}
 
-      <div className={classes.pagination}>
+      <div
+        className={`pagination ${classes.sliderImage}`}
+        style={{ display: "flex" }}
+      >
         <button
           onClick={prevPageHandler}
           disabled={currentPage === 0}
-          className={classes.chevron}
+          className="chevron"
         >
           <svg
             width="24"
@@ -105,7 +108,7 @@ export default function ExperiencePage() {
         <button
           onClick={nextPageHandler}
           disabled={currentPage === totalPages - 1}
-          className={classes.chevron}
+          className="chevron"
         >
           <svg
             width="24"

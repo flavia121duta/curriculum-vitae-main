@@ -1,12 +1,11 @@
-// 1. Create a "context" for your images
-// Arguments: (folder path, look in subfolders?, file extension regex)
+// reate a "context" for the images
 let imageContext = require.context(
   "../assets/projects/ui-ux-design",
   true,
   /\.jpg$/,
 );
 
-// 2. Helper function to find images by folder name
+// helper function to find images by folder name
 const getImagesByFolder = (folderName) => {
   return imageContext
     .keys()
@@ -14,7 +13,7 @@ const getImagesByFolder = (folderName) => {
     .map((path) => imageContext(path));
 };
 
-// 3. Export your arrays using the folder names from your structure
+// export arrays using the folder names from the structure
 export const ecommerceMobilePhonesImages = getImagesByFolder("01-phone-verse");
 export const hospitalNetworkImages = getImagesByFolder("02-optima-medical");
 export const findCafeImages = getImagesByFolder("03-find-coffee-shop");
@@ -24,7 +23,6 @@ export const beautySalonImages = getImagesByFolder("06-beauty-salon");
 
 // ------------------
 
-// eslint-disable-next-line no-const-assign
 imageContext = require.context(
   "../assets/projects/data-analysis",
   true,
