@@ -11,6 +11,7 @@ import {
   hospitalNetworkImages,
   marketingAgencyImages,
   shoeRevolutionImages,
+  beautyProductsShop,
   eurovision,
   misteryShopper,
   ukEmploymentRate,
@@ -60,6 +61,11 @@ const PROJECTS_DATA = {
       title: "Beauty Salon",
       images: beautySalonImages,
       labels: ["UI/UX Design", "Beauty", "Brutalist Style", "Salon"],
+    },
+    {
+      title: "Cosmetics Store",
+      images: beautyProductsShop,
+      labels: ["UI/UX Design", "Beauty", "Classic"],
     },
   ],
   "data-analysis": [

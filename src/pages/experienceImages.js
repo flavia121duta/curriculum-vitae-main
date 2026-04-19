@@ -20,6 +20,7 @@ export const findCafeImages = getImagesByFolder("03-find-coffee-shop");
 export const shoeRevolutionImages = getImagesByFolder("04-shoe-revolution");
 export const marketingAgencyImages = getImagesByFolder("05-marketing-agency");
 export const beautySalonImages = getImagesByFolder("06-beauty-salon");
+export const beautyProductsShop = getImagesByFolder("07-beauty-products");
 
 // ------------------
 
