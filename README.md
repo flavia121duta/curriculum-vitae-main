@@ -4,7 +4,7 @@ I created this web application for personal use as a dynamic representation of m
 
 My application is live at this [link](https://dutaflavia.online).
 
-![model image of the website](./images/model_picture_cv.png)
+![model image of the website](./images/wireframe_cv.jpg)
 
 ## Requirements
 - Node.js [link](https://nodejs.org/en)

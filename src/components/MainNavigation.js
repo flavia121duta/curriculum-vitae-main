@@ -35,6 +35,7 @@ export default function MainNavigation() {
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "ro" : "en"));
+    console.log("language update to: ", language);
   };
 
   function avatarClickHandler() {
