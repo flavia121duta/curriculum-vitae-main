@@ -3,21 +3,22 @@
   --text-color: #1e1e1e;
   --dark-purple: #100019;
   --light-purple: #f5e5ff;
+  --text-color-white: #ffffff;
 }
 
 body {
   margin: 0 !important;
   padding: 0 !important;
-  font-family: "Raleway", sans-serif;
-  font-size: large;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text-color);
+  font-size: larger;
   overflow: scroll; /* Ensure scrollbar is always visible to prevent layout shifts */
 }
 
 main.content {
-  margin: 10rem 10rem auto 4rem;
-  max-width: 75%;
+  margin: 4rem 4rem auto 4rem;
+  max-width: 70%; /*before: 75%*/
   color: var(--text-color);
-  opacity: 0.9;
 }
 
 h1.title {
@@ -27,9 +28,20 @@ h1.title {
   color: #100019;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   main.content {
     margin: auto 1rem;
+
+    /* centrat pe mijloc */
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 4.25rem 1rem;
+    /* padding-top: 4.25rem;
+    padding-bottom: 4.25rem; */
+    max-width: 800px;
+    box-sizing: border-box;
+    text-align: left;
   }
 }
 
@@ -47,7 +59,6 @@ p {
 }
 
 a {
-  color: #0f4c81;
   font-weight: 700;
 }
 
@@ -55,14 +66,16 @@ a {
   text-decoration: none;
 }
 
-.pagination {
+.sliderContainer {
   display: flex;
-  /* justify-content: flex-end; */
+  justify-content: center;
   align-items: center;
   margin-top: 3rem;
+  margin-left: auto;
+  width: fit-content;
   gap: 10px;
   background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-  padding: 5px;
+  padding: 8px;
   border-radius: 20px;
   backdrop-filter: blur(4px); /* Modern frosted glass effect */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);

@@ -14,7 +14,7 @@ export default function useScreenSize(screenType = false) {
   if (screenType) {
     if (screenSize < 768) {
       screenTypeValue = "mobile";
-    } else if (screenSize >= 768 && screenSize < 1365) {
+    } else if (screenSize >= 768 && screenSize < 1024) {
       screenTypeValue = "tablet";
     } else {
       screenTypeValue = "desktop";

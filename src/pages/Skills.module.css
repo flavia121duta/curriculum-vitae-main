@@ -1,30 +1,25 @@
-.horizontal-list {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 0;
-  padding-top: 3rem;
+.skills-grid {
+  /* This creates two columns that fill vertically first */
+  column-count: 2;
+  /* Adjust the gap between the two main columns */
+  column-gap: 4rem;
+  margin-top: 2rem;
 }
 
-.horizontal-list i {
-  font-size: 3rem;
-  color: grey;
-}
-
-.horizontal-list i:hover {
-  color: #0f4c81;
-}
-
-.parent {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  gap: 1rem;
-}
-
-.parent li {
+/* Add this to prevent a skill from being split between two columns */
+.container {
+  break-inside: avoid;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  margin-bottom: 2.5rem; /* Space between rows */
 }
 
+@media (max-width: 1500px) {
+  .skills-grid {
+    column-count: 1; /* Stack in a single column on smaller screens */
+  }
+
+  .skills-grid > * {
+    margin-bottom: 2rem; /* Reduce space between rows on smaller screens */
+  }
+}

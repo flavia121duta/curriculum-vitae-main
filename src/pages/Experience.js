@@ -79,10 +79,7 @@ export default function ExperiencePage() {
         </section>
       ))}
 
-      <div
-        className={`pagination ${classes.sliderImage}`}
-        style={{ display: "flex" }}
-      >
+      <div className={`sliderContainer`} style={{ marginBottom: "20px" }}>
         <button
           onClick={prevPageHandler}
           disabled={currentPage === 0}

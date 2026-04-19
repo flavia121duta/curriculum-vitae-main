@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Button from "../components/UI/Button";
-import classes from "./Experience.module.css";
+import classes from "./SideProjects.module.css";
 import ProjectCard from "../components/UI/ProjectCard";
+import ModalProject from "./ModalProject";
 
 import {
   beautySalonImages,
@@ -109,6 +110,8 @@ const PROJECTS_DATA = {
 export default function SideProjectsPage() {
   const [category, setCategory] = useState("ui-ux");
 
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const selectedProjects = PROJECTS_DATA[category];
 
   const handleCategoryChange = (newCategory) => {
@@ -117,8 +120,28 @@ export default function SideProjectsPage() {
 
   return (
     <div className={classes.pageContainer}>
+      {/* afisarea modalului */}
+      {selectedProject && (
+        <div
+          className={classes.backdrop}
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className={classes.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={classes.closeBtn}
+              onClick={() => setSelectedProject(null)}
+            >
+              ×
+            </button>
+            <ModalProject project={selectedProject} />
+          </div>
+        </div>
+      )}
       <h1 className="title">SIDE PROJECTS</h1>
-      <p className={classes.description}>
+      <p>
         Here are some of the projects I've been working on, from user-centered
         app prototypes to hands-on development work. Each one reflects a unique
         challenge and a creative solution, whether it's refining the user
@@ -140,9 +163,13 @@ export default function SideProjectsPage() {
         />
       </div>
 
-      <div className={classes.projectsGrid}>
+      <div className={`${classes["projects-grid"]}`}>
         {selectedProjects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onSelect={() => setSelectedProject(project)}
+          />
         ))}
       </div>
     </div>

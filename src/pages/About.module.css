@@ -1,67 +1,23 @@
-.about-page {
+.title-and-description {
   position: relative;
 }
 
-.first-name {
-  color: #9d00ff;
+.button-container {
+  margin-top: 5rem;
 }
 
 .key-word {
-  color: #9d00ff;
+  color: var(--primary-color-purple);
   font-weight: bold;
-}
-
-.btn-download {
-  margin: 1rem;
-}
-
-.btn-download > i {
-  padding: 10px;
-  font-size: 1rem;
-}
-
-.contact {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
-  cursor: pointer;
-}
-
-.social > * {
-  margin: 1rem;
-  font-size: 3rem;
 }
 
 .social-container {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -80px;
+  left: -6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.social i {
-  color: grey;
-}
-
-.social i:hover {
-  color: #0f4c81;
-}
-
-.email {
-  text-decoration: underline;
-}
-
-.hide-option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hide-option:active {
-  animation: growDown 300ms ease-in-out forwards;
 }

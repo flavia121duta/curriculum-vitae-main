@@ -11,6 +11,7 @@ export default function EducationPage() {
           <div>2023 - 2025:</div>
           <div>
             Master in Software Engineering at the University of Bucharest,{" "}
+            <br />
             <a
               href="https://fmi.unibuc.ro/"
               target="_blank"
@@ -27,7 +28,7 @@ export default function EducationPage() {
 
           <div>2020 - 2023:</div>
           <div>
-            Diploma in Mathematics at the University of Bucharest,{" "}
+            Diploma in Mathematics at the University of Bucharest, <br />
             <a
               href="https://fmi.unibuc.ro/"
               target="_blank"
@@ -51,7 +52,7 @@ export default function EducationPage() {
             >
               National College "Dimitrie Cantemir"
             </a>{" "}
-            from Oneşti
+            from Oneşti, Bacău
           </div>
         </div>
       </section>
