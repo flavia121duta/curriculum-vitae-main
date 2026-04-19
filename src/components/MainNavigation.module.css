@@ -96,6 +96,8 @@
   align-items: center;
   margin-top: 1rem;
   width: 100%;
+  position: sticky;
+  top: 1rem;
 }
 
 .list {

@@ -1,9 +1,11 @@
 .skills-grid {
-  /* This creates two columns that fill vertically first */
   column-count: 2;
-  /* Adjust the gap between the two main columns */
   column-gap: 4rem;
   margin-top: 2rem;
+}
+
+.skills-grid > * {
+  font-size: 1.05rem;
 }
 
 /* Add this to prevent a skill from being split between two columns */

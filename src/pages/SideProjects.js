@@ -141,7 +141,7 @@ export default function SideProjectsPage() {
         </div>
       )}
       <h1 className="title">SIDE PROJECTS</h1>
-      <p>
+      <p className={classes["projects-description"]}>
         Here are some of the projects I've been working on, from user-centered
         app prototypes to hands-on development work. Each one reflects a unique
         challenge and a creative solution, whether it's refining the user

@@ -28,7 +28,13 @@ h1.title {
   color: #100019;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 800px) {
+  h1.title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1023px) {
   main.content {
     margin: auto 1rem;
 
@@ -42,6 +48,10 @@ h1.title {
     max-width: 800px;
     box-sizing: border-box;
     text-align: left;
+  }
+
+  p {
+    font-size: 18px;
   }
 }
 
