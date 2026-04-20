@@ -1,6 +1,19 @@
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .avatar-img {
   width: 65%;
   border-radius: 50%;
   margin: 3rem;
-  /* border: 0.3rem solid var(--primary-color-purple); */
+}
+
+.spinner {
+  width: 50px; /* Sau dimensiunea dorită */
+  height: 50px;
+  display: block;
+  margin: auto;
+  background: transparent;
 }

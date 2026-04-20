@@ -2,7 +2,7 @@
 let imageContext = require.context(
   "../assets/projects/ui-ux-design",
   true,
-  /\.jpg$/,
+  /\.(jpe?g|png|webp)$/i,
 );
 
 // helper function to find images by folder name

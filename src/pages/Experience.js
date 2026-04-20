@@ -1,6 +1,4 @@
 import classes from "./Experience.module.css";
-import { useState } from "react";
-
 const experiences = [
   {
     role: "Data Analyst",
@@ -37,31 +35,11 @@ const experiences = [
 ];
 
 export default function ExperiencePage() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 3;
-
-  // calculate whitch items to show
-  const startIndex = currentPage * itemsPerPage;
-  const selectedExperiences = experiences.slice(
-    startIndex,
-    startIndex + itemsPerPage,
-  );
-
-  const totalPages = Math.ceil(experiences.length / itemsPerPage);
-
-  const nextPageHandler = () => {
-    if (currentPage < totalPages - 1) setCurrentPage((prev) => prev + 1);
-  };
-
-  const prevPageHandler = () => {
-    if (currentPage > 0) setCurrentPage((prev) => prev - 1);
-  };
-
   return (
     <>
       <h1 className="title">EXPERIENCE</h1>
 
-      {selectedExperiences.map((exp, index) => (
+      {experiences.map((exp, index) => (
         <section key={index} className={classes.experienceSection}>
           <h2>
             {exp.role} at{" "}
@@ -78,52 +56,6 @@ export default function ExperiencePage() {
           <p>{exp.description}</p>
         </section>
       ))}
-
-      <div className={`sliderContainer`} style={{ marginBottom: "20px" }}>
-        <button
-          onClick={prevPageHandler}
-          disabled={currentPage === 0}
-          className="chevron"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 19L8 12L15 5"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-
-        <button
-          onClick={nextPageHandler}
-          disabled={currentPage === totalPages - 1}
-          className="chevron"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 5L16 12L9 19"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
     </>
   );
 }

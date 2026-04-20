@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.social-container > * {
+  line-height: 100%;
+}
+
 /* mobile layout */
 .top-container {
   display: flex;
