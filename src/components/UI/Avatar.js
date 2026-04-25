@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./Avatar.module.css";
-import profilePicture from "../../assets/recent-profile-picture.jpg";
+import profilePicture from "../../assets/recent-profile-picture.webp";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 export default function Avatar(props) {

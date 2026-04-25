@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LanguageContext } from "../components/hooks/context/LanguageContext";
 import Button from "../components/UI/Button";
 import classes from "./SideProjects.module.css";
 import ProjectCard from "../components/UI/ProjectCard";
@@ -43,19 +44,9 @@ const PROJECTS_DATA = {
       ],
     },
     {
-      title: "Find Cafe",
-      images: findCafeImages,
-      labels: ["UI/UX Design", "Prototype", "Coffee", "Map", "Bucharest"],
-    },
-    {
       title: "Shoe Revolution",
       images: shoeRevolutionImages,
       labels: ["UI/UX Design", "Prototype", "e-Commerce", "Shoes"],
-    },
-    {
-      title: "Marketing Agency",
-      images: marketingAgencyImages,
-      labels: ["UI/UX Design", "Marketing", "Agency", "Data Analysis"],
     },
     {
       title: "Beauty Salon",
@@ -67,6 +58,16 @@ const PROJECTS_DATA = {
       images: beautyProductsShop,
       labels: ["UI/UX Design", "Beauty", "Classic"],
     },
+    {
+      title: "Marketing Agency",
+      images: marketingAgencyImages,
+      labels: ["UI/UX Design", "Marketing", "Agency", "Data Analysis"],
+    },
+    {
+      title: "Find Cafe",
+      images: findCafeImages,
+      labels: ["UI/UX Design", "Prototype", "Coffee", "Map", "Bucharest"],
+    },
   ],
   "data-analysis": [
     {
@@ -74,6 +75,7 @@ const PROJECTS_DATA = {
       images: eurovision,
       labels: ["Power BI", "Visualization"],
     },
+    { title: "Earthquakes", images: earthQuakes, labels: ["Tableau", "Map"] },
     {
       title: "Mystery Shopper",
       images: misteryShopper,
@@ -104,7 +106,7 @@ const PROJECTS_DATA = {
       images: hollywoodProfitableFilms,
       labels: ["Tableau", "Analysis"],
     },
-    { title: "Earthquakes", images: earthQuakes, labels: ["Tableau", "Map"] },
+
     {
       title: "Netflix",
       images: netflixMoviesAndShows,
@@ -113,16 +115,22 @@ const PROJECTS_DATA = {
   ],
 };
 
+const pageDescription = {
+  en: "Here are some of the projects I've been working on, from user-centered app prototypes to hands-on development work. Each one reflects a unique challenge and a creative solution, whether it's refining the user experience, exploring design systems, or building interactive interfaces. Dive in to see the tools I used and the thought process behind each project.",
+  ro: "Iată câteva dintre proiectele la care am lucrat, de la prototipuri de aplicații centrate pe utilizator până la implementări tehnice propriu-zise. Fiecare dintre acestea reflectă o provocare unică și o soluție creativă, fie că a fost vorba despre optimizarea experienței utilizatorului (UX), explorarea sistemelor de design sau construirea unor interfețe interactive. Răsfoiește câteva dintr ele pentru a descoperi instrumentele pe care le-am folosit și raționamentul din spatele fiecăruia.",
+};
+
 export default function SideProjectsPage() {
   const [category, setCategory] = useState("ui-ux");
 
   const [selectedProject, setSelectedProject] = useState(null);
-
   const selectedProjects = PROJECTS_DATA[category];
 
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
   };
+
+  const { language } = useContext(LanguageContext);
 
   return (
     <div className={classes.pageContainer}>
@@ -146,14 +154,11 @@ export default function SideProjectsPage() {
           </div>
         </div>
       )}
-      <h1 className="title">SIDE PROJECTS</h1>
+      <h1 className="title">
+        {language === "en" ? "SIDE PROJECTS" : "PROIECTE PERSONALE"}
+      </h1>
       <p className={classes["projects-description"]}>
-        Here are some of the projects I've been working on, from user-centered
-        app prototypes to hands-on development work. Each one reflects a unique
-        challenge and a creative solution, whether it's refining the user
-        experience, exploring design systems, or building interactive
-        interfaces. Dive in to see the tools I used and the thought process
-        behind each project.
+        {language === "en" ? pageDescription["en"] : pageDescription["ro"]}
       </p>
 
       <div className={classes.filterButtons}>

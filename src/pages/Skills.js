@@ -1,7 +1,8 @@
 import classes from "./Skills.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ChipSkillExperience from "../components/UI/ChipSkillExperience";
 import Button from "../components/UI/Button";
+import { LanguageContext } from "../components/hooks/context/LanguageContext";
 
 const programmingLanguages = [
   { language: "C++", level: "advanced" },
@@ -41,7 +42,7 @@ export default function SkillsPage() {
     "programmingLanguages",
   );
 
-  // Create a map to easily grab the right array
+  // create a map to easily grab the right array
   const categoryData = {
     programmingLanguages: {
       data: programmingLanguages,
@@ -59,11 +60,17 @@ export default function SkillsPage() {
 
   const currentCategory = categoryData[skillsToDisplay];
 
+  const { language } = useContext(LanguageContext);
+
   return (
     <>
-      <h1 className="title">SKILLS</h1>
+      <h1 className="title">{language === "en" ? "SKILLS" : "COMPETENȚE"}</h1>
       <section>
-        <p>Programming languages, frameworks and tools that I worked with:</p>
+        <p>
+          {language === "en"
+            ? "Programming languages, frameworks and tools that I worked with:"
+            : "Limbaje de programare, framework-uri și instrumente cu care lucrez sau am lucrat de-a lungul timpului:"}
+        </p>
 
         <div className={classes.filterButtons}>
           <Button

@@ -199,3 +199,7 @@
 .bottom-menu .list a.activeIcon img {
   opacity: 1;
 }
+
+.page-settings {
+  display: flex;
+}

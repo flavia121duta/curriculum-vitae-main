@@ -1,5 +1,6 @@
 .skills-grid {
-  column-count: 2;
+  display: grid;
+  grid-template-columns: auto auto;
   column-gap: 4rem;
   margin-top: 2rem;
 }
@@ -13,15 +14,12 @@
   break-inside: avoid;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2.5rem; /* Space between rows */
+  /* Space between rows */
+  margin-bottom: 2.5rem;
 }
 
 @media (max-width: 1500px) {
   .skills-grid {
-    column-count: 1; /* Stack in a single column on smaller screens */
-  }
-
-  .skills-grid > * {
-    margin-bottom: 2rem; /* Reduce space between rows on smaller screens */
+    grid-template-columns: auto;
   }
 }

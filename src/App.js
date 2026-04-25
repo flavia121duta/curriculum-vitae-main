@@ -8,6 +8,9 @@ import SideProjectsPage from "./pages/SideProjects";
 import SkillsPage from "./pages/Skills";
 import ErrorPage from "./pages/Error";
 
+import { ThemeProvider } from "./components/hooks/context/ThemeContext";
+import { LanguageProvider } from "./components/hooks/context/LanguageContext";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,7 +27,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <LanguageProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </LanguageProvider>
+  );
 }
 
 export default App;

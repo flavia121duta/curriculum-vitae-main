@@ -16,7 +16,7 @@ const getImagesByFolder = (folderName) => {
 // export arrays using the folder names from the structure
 export const ecommerceMobilePhonesImages = getImagesByFolder("01-phone-verse");
 export const hospitalNetworkImages = getImagesByFolder("02-optima-medical");
-export const findCafeImages = getImagesByFolder("03-find-coffee-shop");
+export const findCafeImages = getImagesByFolder("08-find-coffee-shop");
 export const shoeRevolutionImages = getImagesByFolder("04-shoe-revolution");
 export const marketingAgencyImages = getImagesByFolder("05-marketing-agency");
 export const beautySalonImages = getImagesByFolder("06-beauty-salon");
@@ -27,7 +27,7 @@ export const beautyProductsShop = getImagesByFolder("07-beauty-products");
 imageContext = require.context(
   "../assets/projects/data-analysis",
   true,
-  /\.jpg$/,
+  /\.(jpe?g|png|webp)$/i,
 );
 
 export const eurovision = getImagesByFolder("01-eurovision");
