@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
   background-color: var(--dark-purple);
+  border-right: 1px solid var(--light-purple);
+}
+
+.hidden-list {
+  color: white;
 }
 
 .top-menu,
@@ -14,9 +19,15 @@
   background: var(--dark-purple);
   color: var(--text-color-white);
   z-index: 1000;
-  /* max-width: 800px; */
-  /* padding: 0.5rem 1rem; */
   box-sizing: border-box;
+}
+
+.top-menu {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.bottom-menu {
+  border-top: 1px solid white;
 }
 
 /* NOUA CLASĂ pentru conținutul centrat */
@@ -118,21 +129,10 @@
 
 .list a:hover,
 .list a.active {
-  background-color: var(--primary-color-purple);
+  background-color: var(--accent-color);
   border-radius: 10px;
   padding: 0.25rem 0.5rem;
   width: max-content;
-}
-
-@media (max-width: 1024px) {
-  .list a:hover,
-  .list a.active {
-    /* background-color: red; */
-  }
-
-  .list a:hover {
-    /* background-color: transparent; */
-  }
 }
 
 .activeIcon {

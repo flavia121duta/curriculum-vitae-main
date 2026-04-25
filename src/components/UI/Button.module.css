@@ -10,24 +10,24 @@
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 10px;
-  border: 1px solid var(--primary-color-purple);
+  border: 1px solid var(--accent-color);
   font-size: 1.1rem;
 }
 
 .primary-button {
-  background-color: var(--primary-color-purple);
+  background-color: var(--accent-color);
   color: white;
 }
 
 .primary-button:hover {
   background-color: transparent;
-  color: var(--primary-color-purple);
-  border: 1px solid var(--primary-color-purple);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .secondary-button {
   background-color: transparent;
-  color: var(--dark-purple);
+  color: var(--text-color);
   border: 1px solid #ccc;
 }
 

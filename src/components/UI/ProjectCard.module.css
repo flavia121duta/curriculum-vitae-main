@@ -1,5 +1,6 @@
 .project-card {
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 25px var(--shadow);
+  backgroud: transparent;
   overflow: hidden;
   display: flex;
   flex-direction: column;
