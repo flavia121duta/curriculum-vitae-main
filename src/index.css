@@ -4,11 +4,18 @@
   --text-color: #1e1e1e;
   --text-primary: #1e1e1e;
   --accent-color: #9d00ff;
+  --dark-purple-shade: #1f0033;
   --dark-purple: #100019;
   --light-purple: #f5e5ff;
   --white: #fff;
   --shadow: rgba(0, 0, 0, 0.08);
   --white-shadow: rgba(255, 255, 255, 0.2);
+
+  /* card colors */
+  --card-bg: #ffffff;
+  --card-text: #1f0033;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-border: transparent;
 }
 
 /* dark  mode colors */
@@ -16,7 +23,12 @@ body.dark {
   --bg-primary: var(--dark-purple);
   --text-color: var(--light-purple);
   --text-primary: var(--white);
-  --shadow: var(--white-shadow);
+
+  /* card colors */
+  --card-bg: #1f0033;
+  --card-text: #f0e6ff;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --card-border: rgba(255, 255, 255, 0.05);
 }
 
 body {

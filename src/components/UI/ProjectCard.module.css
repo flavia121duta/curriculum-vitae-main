@@ -1,27 +1,45 @@
 .project-card {
-  box-shadow: 0 6px 25px var(--shadow);
-  backgroud: transparent;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  background: var(--card-bg); /* FOLOSEȘTE VARIABILA */
+  color: var(--card-text); /* FOLOSEȘTE VARIABILA */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 12px; /* puțin mai rotunjit pentru un aspect mai modern */
+  border: 1px solid var(--card-border); /* ajută la definire pe dark mode */
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
-  coursor: pointer;
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+  cursor: pointer; /* am corectat typo-ul de la 'coursor' */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px var(--card-shadow);
 }
 
 .main-image {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 9; /* forțează toate imaginile la aceeași proporție */
   object-fit: cover;
-  transition: opacity 0.3s ease;
+  /* Pe dark mode, imaginile pot fi prea luminoase, un mic filtru ajută */
+}
+
+/* Opțional: o ușoară reducere a luminozității pozei pe dark mode până la hover */
+body.dark .main-image {
+  opacity: 0.9;
+}
+
+body.dark .project-card:hover .main-image {
+  opacity: 1;
 }
 
 .project-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 0.5rem;
+  margin: 1rem 0; /* mai mult spațiu */
   text-align: center;
+  padding: 0 10px;
 }

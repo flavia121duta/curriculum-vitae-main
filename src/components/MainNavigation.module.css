@@ -2,8 +2,8 @@
 .header {
   display: flex;
   flex-direction: column;
-  background-color: var(--dark-purple);
-  border-right: 1px solid var(--light-purple);
+  background-color: var(--dark-purple-shade);
+  /* border-right: 1px solid var(--light-purple); */
 }
 
 .hidden-list {
@@ -14,20 +14,19 @@
 .bottom-menu {
   position: fixed;
   left: 0;
-  /* width: stretch; */
   width: 100%;
-  background: var(--dark-purple);
+  background: var(--dark-purple-shade);
   color: var(--text-color-white);
   z-index: 1000;
   box-sizing: border-box;
 }
 
 .top-menu {
-  border-bottom: 1px solid var(--text-color);
+  /* border-bottom: 1px solid var(--text-color); */
 }
 
 .bottom-menu {
-  border-top: 1px solid white;
+  /* border-top: 1px solid white; */
 }
 
 /* NOUA CLASĂ pentru conținutul centrat */
