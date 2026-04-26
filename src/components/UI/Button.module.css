@@ -25,6 +25,20 @@
   border: 1px solid var(--accent-color);
 }
 
+@media screen and (max-width: 600px) {
+  .primary-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border: 1px solid var(--accent-color);
+  }
+
+  .secondary-button:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid #ccc;
+  }
+}
+
 .secondary-button {
   background-color: transparent;
   color: var(--text-color);

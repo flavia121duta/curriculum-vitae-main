@@ -1,5 +1,17 @@
+.hidden {
+  display: none;
+}
+
+.spinner-wrapper {
+  height: 300px; /* sau înălțimea imaginii tale */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .project-card {
-  background-color: var(--bg-primary);
+  background-color: var(--white);
+  color: var(--dark-purple);
   border-radius: 12px;
   width: 100%;
   box-sizing: border-box;
@@ -7,13 +19,24 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: relative;
 }
 
 .sliderImage {
   position: absolute;
-  bottom: 10px;
-  right: 15px;
+  top: 5px;
+  right: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  padding: 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px); /* Modern frosted glass effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sliderImage span {
@@ -52,4 +75,31 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+/* ---- */
+
+.chevron {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chevron:hover:not(:disabled) {
+  transform: scale(1.1);
+  color: var(--dark-purple);
+}
+
+.chevron:disabled {
+  color: #858585;
+  cursor: not-allowed;
+}
+
+.chevron svg {
+  display: block;
 }

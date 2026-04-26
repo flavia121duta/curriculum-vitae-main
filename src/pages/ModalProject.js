@@ -1,12 +1,26 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef, useContext } from "react";
+import { LanguageContext } from "../components/hooks/context/LanguageContext";
 import Label from "../components/UI/Label";
 import classes from "./ModalProject.module.css";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 export default function ModalProject({ project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIsLoading, setCurrentImageIsLoading] = useState(true);
 
-  // Folosim useCallback pentru a ne asigura că funcțiile sunt memorate
-  // și nu recreează listener-ul inutil la fiecare render
+  const { language } = useContext(LanguageContext);
+
+  useEffect(() => {
+    setCurrentImageIsLoading(true);
+  }, [currentImageIndex]);
+
+  // Folosim useRef pentru a stoca coordonatele fără a declanșa re-randări inutile
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  // Distanța minimă pentru a fi considerat un swipe (în pixeli)
+  const minSwipeDistance = 50;
+
   const prevImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? project.images.length - 1 : prevIndex - 1,
@@ -19,7 +33,45 @@ export default function ModalProject({ project }) {
     );
   }, [project.images.length]);
 
-  // Hook-ul pentru tastatură
+  // --- Hook-ul pentru Touchscreen ---
+  useEffect(() => {
+    const onTouchStart = (e) => {
+      touchEndX.current = null; // Resetăm la fiecare atingere nouă
+      touchStartX.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchMove = (e) => {
+      touchEndX.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchEnd = () => {
+      if (!touchStartX.current || !touchEndX.current) return;
+
+      const distance = touchStartX.current - touchEndX.current;
+      const isLeftSwipe = distance > minSwipeDistance;
+      const isRightSwipe = distance < -minSwipeDistance;
+
+      if (isLeftSwipe) {
+        // Swipe spre stânga -> Mergem la imaginea URMĂTOARE
+        nextImage();
+      } else if (isRightSwipe) {
+        // Swipe spre dreapta -> Mergem la imaginea ANTERIOARĂ
+        prevImage();
+      }
+    };
+
+    window.addEventListener("touchstart", onTouchStart);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [nextImage, prevImage]); // Re-legăm listener-ul dacă funcțiile se schimbă
+
+  // --- Hook-ul pentru Tastatura ---
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "ArrowLeft") {
@@ -51,18 +103,30 @@ export default function ModalProject({ project }) {
         </div>
       </div>
 
+      <p className={classes["project-description"]}>
+        {project.description[language]}
+      </p>
+
       <div className={classes["carousel-container"]}>
+        {/* 2. SPINNER-ul: apare doar dacă starea este true */}
+        {currentImageIsLoading && (
+          <div className={classes["spinner-wrapper"]}>
+            <LoadingSpinner />
+          </div>
+        )}
+
+        {/* 3. IMAGINEA: este mereu în DOM, dar ascunsă prin CSS cât timp se încarcă */}
         <img
+          key={project.images[currentImageIndex]} // 'key' forțează React să trateze imaginea ca pe un element nou
           src={project.images[currentImageIndex]}
           alt={project.title}
-          className={classes["project-card-img"]}
+          className={`${classes["project-card-img"]} ${currentImageIsLoading ? classes.hidden : ""}`}
+          onLoad={() => setCurrentImageIsLoading(false)}
+          onError={() => setCurrentImageIsLoading(false)} // Oprim spinner-ul și dacă e eroare
         />
-        <div className={`sliderContainer ${classes["sliderImage"]}`}>
-          <button
-            onClick={prevImage}
-            disabled={currentImageIndex === 0}
-            className="chevron"
-          >
+
+        <div className={`${classes["sliderImage"]}`}>
+          <button onClick={prevImage} className={classes.chevron}>
             <svg
               width="24"
               height="24"
@@ -70,13 +134,7 @@ export default function ModalProject({ project }) {
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M15 19L8 12L15 5"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M15 19L8 12L15 5" />
             </svg>
           </button>
 
@@ -84,11 +142,7 @@ export default function ModalProject({ project }) {
             {currentImageIndex + 1} / {project.images.length}
           </span>
 
-          <button
-            onClick={nextImage}
-            disabled={currentImageIndex === project.images.length - 1}
-            className="chevron"
-          >
+          <button onClick={nextImage} className={classes.chevron}>
             <svg
               width="24"
               height="24"
@@ -96,28 +150,11 @@ export default function ModalProject({ project }) {
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M9 5L16 12L9 19"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M9 5L16 12L9 19" />
             </svg>
           </button>
         </div>
       </div>
-
-      <p className={classes["project-description"]}>
-        {project.description}
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
     </div>
   );
 }
