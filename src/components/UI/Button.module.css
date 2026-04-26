@@ -21,8 +21,8 @@
 
 .primary-button:hover {
   background-color: transparent;
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
+  color: var(--second-accent-color);
+  border: 1px solid var(--second-accent-color);
 }
 
 @media screen and (max-width: 600px) {
@@ -46,7 +46,7 @@
 }
 
 .secondary-button:hover {
-  background-color: var(--dark-purple);
-  color: white;
-  border: 1px solid var(--dark-purple);
+  /* background-color: var(--dark-purple); */
+  color: var(--second-accent-color);
+  border: 1px solid transparent;
 }

@@ -4,6 +4,7 @@
   --text-color: #1e1e1e;
   --text-primary: #1e1e1e;
   --accent-color: #9d00ff;
+  --second-accent-color: #9d00ff;
   --dark-purple-shade: #1f0033;
   --dark-purple: #100019;
   --light-purple: #f5e5ff;
@@ -23,6 +24,7 @@ body.dark {
   --bg-primary: var(--dark-purple);
   --text-color: var(--light-purple);
   --text-primary: var(--white);
+  --second-accent-color: #ffdd21;
 
   /* card colors */
   --card-bg: #1f0033;

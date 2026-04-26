@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 2fr 5fr;
   align-items: start;
-  /* margin-left: 2rem; */
 }
 
 .container > div:nth-child(even) {
@@ -12,7 +11,7 @@
 .container > div:nth-child(odd) {
   display: flex;
   align-items: center;
-  color: var(--accent-color);
+  color: var(--second-accent-color);
   font-size: 1.4rem;
   font-weight: bold;
 }

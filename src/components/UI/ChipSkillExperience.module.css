@@ -1,7 +1,6 @@
 .skillName {
   font-weight: 500;
   margin-bottom: 0.5rem;
-  /* color: #333; */
 }
 
 .chipsContainer {
@@ -21,7 +20,7 @@
 }
 
 .active {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: white;
+  background-color: var(--second-accent-color);
+  border-color: var(--second-accent-color);
+  color: var(--card-bg);
 }
