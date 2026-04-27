@@ -21,7 +21,7 @@
   display: inline-block;
   width: 10px; /* Lățimea bullet-ului */
   height: 10px; /* Înălțimea bullet-ului */
-  background-color: var(--dark-purple); /* Culoarea bullet-ului */
+  background-color: var(--bullet-color); /* Culoarea bullet-ului */
   border-radius: 50%; /* Îl face cerc. Șterge linia asta dacă vrei pătrat */
   margin-right: 12px; /* Spațiul dintre bullet și text */
   flex-shrink: 0; /* Împiedică bullet-ul să se turtească pe ecrane mici */

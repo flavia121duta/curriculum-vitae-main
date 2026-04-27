@@ -11,6 +11,7 @@
   --white: #fff;
   --shadow: rgba(0, 0, 0, 0.08);
   --white-shadow: rgba(255, 255, 255, 0.2);
+  --bullet-color: var(--dark-purple);
 
   /* card colors */
   --card-bg: #ffffff;
@@ -25,6 +26,7 @@ body.dark {
   --text-color: var(--light-purple);
   --text-primary: var(--white);
   --second-accent-color: #ffdd21;
+  --bullet-color: #ffdd21;
 
   /* card colors */
   --card-bg: #1f0033;
